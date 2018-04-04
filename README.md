@@ -8,7 +8,7 @@ A tested Store class for storing and retrieving objects in local memory. Objects
 Methods on the Store class include:
 
 * `save(object)`:
- * generates an `_id` property on each object
+ ** generates an `_id` property on each object
  * returns the `object` with `_id` property
 * `get(id)`
  * finds the object with matching id and returns it
