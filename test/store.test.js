@@ -8,14 +8,33 @@ describe('Store tests', () => {
         occupation: 'Rodeo trickster'
     };
 
+    const store = new Store();
+
     it('initializes with an empty array', () => {
-        const store = new Store();
         assert.deepEqual(store.database, []);
     });
 
     it('saves an object to the store', () => {
-        const store = new Store();
         store.save(testItem);
         assert.equal(store.database[0].name, 'Alfonzo');
+        assert.equal(store.database[0].occupation, 'Rodeo trickster');
     });
+
+    it('returns an object from the database with the given _id', () => {
+        const savedObj = store.save({ name: 'Birdie' });
+        const returnedObj = store.get(savedObj._id);
+        assert.deepEqual(returnedObj, savedObj);
+    });
+
+    it('returns null if _id not in store', () => {
+        const noObject = store.get(2);
+        assert.deepEqual(noObject, null);
+    });
+
+    it('returns copy array of all objects in store', () => {
+        const database = store.getAll();
+        assert.deepEqual(database, store.database);
+    });
+
+    
 });
