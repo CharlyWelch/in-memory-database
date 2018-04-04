@@ -1,6 +1,7 @@
 # In-memory Database
 
-## Author: Charly Welch <blwbiology@gmail.com>
+## Author: Charly Welch 
+<blwbiology@gmail.com>
 
 A tested Store class for storing and retrieving objects in local memory. Objects are stored in an array. 
 
