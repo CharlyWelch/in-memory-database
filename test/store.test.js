@@ -36,5 +36,15 @@ describe('Store tests', () => {
         assert.deepEqual(database, store.database);
     });
 
-    
+    it('removes an item and returns { removed: true }', () => {
+        const store2 = new Store();
+        const savedItem = store2.save({ name: 'Henrietta' });
+        const removed = store2.remove(savedItem._id);
+        assert.deepEqual(removed, { removed: true });
+    });
+
+    it('looks for nonexistant item and returns { removed: false }', () => {
+        const removed = store.remove('2');
+        assert.deepEqual(removed, { removed: false });
+    });
 });
